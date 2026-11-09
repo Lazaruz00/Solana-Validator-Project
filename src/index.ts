@@ -176,6 +176,9 @@ async function main() {
             `Leader schedule failed: ${getLeaderScheduleErrorMsg}`,
           );
         } else if (leaderSchedule.value === null) {
+          console.log(
+            `Leader schedule not available for validator ${voteAccount} in epoch #${epoch}.`,
+          );
           await logGaps(
             voteAccount,
             epoch,
