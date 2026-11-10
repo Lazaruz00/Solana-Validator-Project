@@ -41,14 +41,15 @@ Run the pipeline first, since the API only reads from the database.
 npm run api        # http://localhost:3000
 ```
 
-| Endpoint | Returns |
-|---|---|
+| Endpoint                                  | Returns                                                                                                                                                                                                      |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `GET /validators/:vote/rewards?from=&to=` | Per epoch: staking reward (SOL), commission %, block fees (SOL), and the number of blocks with stored fees. `from` and `to` default to the range of stored data, and a request can span at most 1000 epochs. |
-| `GET /validators/:vote/summary` | Total staking rewards and total block fees (SOL), plus how many epochs each total covers. |
+| `GET /validators/:vote/summary`           | Total staking rewards and total block fees (SOL), plus how many epochs each total covers.                                                                                                                    |
 
 ```bash
 curl "http://localhost:3000/validators/<VOTE_ACCOUNT>/rewards?from=1079&to=1080"
 curl "http://localhost:3000/validators/<VOTE_ACCOUNT>/summary"
+# If running on Windows powershell, use curl.exe instead of curl
 ```
 
 Amounts are returned as strings in SOL (9 decimal places) to avoid floating-point error. A `null` means no data is stored for that epoch.
@@ -56,7 +57,8 @@ Amounts are returned as strings in SOL (9 decimal places) to avoid floating-poin
 ---
 
 ## Explain how Solana staking reward works
-I would imagine Solana to be a giant, worldwide video game running on thousands of computers at the same time. To make sure no one cheats or the system does not crash, the game (Solana) needs referees (validators). The more referees there are, the smoother, faster and cleaner the game runs. Suppose you have some coins (SOL) and you want to put them to good use by helping the network. You team up with the validator by entrusting it with your SOL coins (staking)	and give it more voting power. As your 'investment' in the validator allowed it to become 'stronger' in securing the network and processing the blocks better, the network rewards you with bonus SOL coins to thank you.
+
+I would imagine Solana to be a giant, worldwide video game running on thousands of computers at the same time. To make sure no one cheats or the system does not crash, the game (Solana) needs referees (validators). The more referees there are, the smoother, faster and cleaner the game runs. Suppose you have some coins (SOL) and you want to put them to good use by helping the network. You team up with the validator by entrusting it with your SOL coins (staking) and give it more voting power. As your 'investment' in the validator allowed it to become 'stronger' in securing the network and processing the blocks better, the network rewards you with bonus SOL coins to thank you.
 
 ## Main design decisions
 

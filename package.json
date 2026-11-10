@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "api": "tsx src/server.ts"
+    "api": "tsx src/server.ts",
+    "index": "tsx src/index.ts"
   },
   "keywords": [],
   "author": "",
